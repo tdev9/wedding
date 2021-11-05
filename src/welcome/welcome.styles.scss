@@ -1,0 +1,71 @@
+.welcome-header {
+  background-image: url("~/assets/images/wedding.jpg");
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: center;
+  height: 400px;
+  h1 {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
+}
+.bus-arrivals {
+  display: flex;
+  flex-wrap: wrap;
+  & > div:first-child {
+    flex: 8;
+  }
+
+  &__img-container {
+    flex: 1;
+  }
+  &__img {
+    max-width: 100%;
+    max-height: 100%;
+    background-attachment: fixed;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    height: 300px;
+    background-image: url("../../assets/images/bus.jpg");
+    font-size: 52px;
+    line-height: 300px;
+    text-align: center;
+    color: white;
+    font-weight: 1000;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+    @media (max-width: 1100px) {
+      height: 200px;
+      line-height: 200px;
+    }
+  }
+}
+.programs__img {
+  max-width: 100%;
+  max-height: 100%;
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  height: 300px;
+  background-image: url("../../assets/images/flowers.jpg");
+  font-size: 52px;
+  line-height: 300px;
+  text-align: center;
+  color: white;
+  font-weight: 1000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  @media (max-width: 1100px) {
+    height: 200px;
+    line-height: 200px;
+  }
+}
+
+.section-container {
+  &--programs {
+    background-color: rgb(241, 241, 241);
+  }
+}

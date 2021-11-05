@@ -1,0 +1,323 @@
+@font-face {
+  font-family: "caveat";
+  src: url("~/assets/fonts/Caveat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "caveat";
+  src: url("~/assets/fonts/Caveat-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "lora";
+  src: url("~/assets/fonts/Lora-Regular.ttf");
+}
+@font-face {
+  font-family: "lora";
+  src: url("~/assets/fonts/Lora-Italic.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "courgette";
+  src: url("~/assets/fonts/Courgette-Regular.ttf");
+}
+
+@font-face {
+  font-family: "kalam";
+  src: url("~/assets/fonts/Kalam-Regular.ttf");
+}
+@import "./variables.styles.scss";
+
+$wedding-dress: rgb(255, 238, 0);
+$ring: rgb(253, 34, 100);
+$concert: rgb(48, 168, 48);
+.section-container {
+  min-height: 200px;
+  padding: 10px 0;
+}
+.text-center {
+  text-align: center;
+}
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: kalam;
+}
+h1 {
+  font-size: 42px;
+}
+p {
+  font-size: 28px;
+}
+
+.program-item {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > span {
+    flex: 7;
+    display: inline-block;
+    &.horizontal-line-dot {
+      flex: 1;
+    }
+  }
+}
+
+.program-item-box {
+  height: 100px;
+  width: 100px;
+  flex: 2;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #000;
+    clear: both;
+    z-index: 1;
+  }
+  &.church {
+    &::after {
+      border-top: 15px solid $church-color;
+    }
+  }
+  &.rings {
+    &::after {
+      border-top: 15px solid $ring;
+    }
+  }
+  &.concert {
+    &::after {
+      border-top: 15px solid $concert;
+    }
+  }
+  &.wedding-dress {
+    &::after {
+      border-top: 15px solid transparent;
+    }
+  }
+}
+.program-item.church {
+  & .program-item__main-word {
+    color: $church-color;
+    font-weight: 900;
+  }
+}
+
+.program-item.rings {
+    & .program-item__main-word {
+      color: $ring;
+      font-weight: 900;
+    }
+  }
+
+  .program-item.wedding-dress {
+    & .program-item__main-word {
+      color: $wedding-dress;
+      font-weight: 900;
+    }
+  }
+
+  .program-item.concert {
+    & .program-item__main-word {
+      color: $concert;
+      font-weight: 900;
+    }
+  }
+.program-item-box.church {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  background-color: $church-color;
+  path {
+    fill: white;
+  }
+}
+
+.program-item-box.rings {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  background-color: $ring;
+  path {
+    fill: white;
+  }
+}
+.program-item-box.concert {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  background-color: $concert;
+  path {
+    fill: black;
+  }
+}
+
+.program-item-box.wedding-dress {
+  display: inline-flex;
+  min-width: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: $wedding-dress;
+  path {
+    fill: rgb(255, 0, 0);
+  }
+}
+.horizontal-line-dot {
+  background-color: black;
+  height: 1px;
+  position: relative;
+  &::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: black;
+    position: absolute;
+    border-radius: 10px;
+    top: -4.5px;
+    left: 100%;
+    transform: translatex(-50%);
+  }
+}
+.program-item-box {
+  min-width: 100px;
+}
+
+.container {
+  min-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @media (min-width: $breakpoint-small) {
+    min-width: 540px;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    min-width: 720px;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    min-width: 960px;
+  }
+
+  @media (min-width: $breakpoint-extra-large) {
+    min-width: 1200px;
+  }
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+
+blockquote {
+  font-family: lora;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 22px;
+  line-height: 1.4;
+  position: relative;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: $grey;
+  font-size: 4rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+blockquote:before {
+  content: "“";
+  left: -1rem;
+  top: -2rem;
+}
+
+blockquote:after {
+  content: "”";
+  bottom: -12px;
+}
+
+cite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.pad-bt-20 {
+  padding-bottom: 3rem;
+}
+.pad-top-3r {
+  padding-top: 3rem;
+}
+.root-portal {
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > div {
+    height: 100%;
+    width: 100%;
+  }
+}
+.modal {
+  padding: 15px 20px;
+  max-height: 400px;
+  max-width: 400px;
+  position: fixed;
+  border-radius: 1rem;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+
+  &__body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & p {
+      font-size: 1rem !important;
+    }
+  }
+  &__title {
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+}
+.pointer {
+    cursor:pointer;
+}
+.quote-container {
+    @media (min-width: $breakpoint-tablet) {
+        margin-top: 50px;
+    }
+}
