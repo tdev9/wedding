@@ -33,6 +33,11 @@ export const Welcome = () => {
     const [showModal, setShowModal] = React.useState("");
     return (
       <div className="pad-top-3r">
+        <p>
+          Itt találjátok az esküvő programját, pontos helyszínekkel, címekkel
+          együtt. Térképért, illetve további információért az aláhúzott
+          szövegrészre tudsz kattintani :)
+        </p>
         <div className="program-item church">
           <span>
             <span className="program-item__main-word">15:00</span>: Templomi
@@ -133,8 +138,8 @@ export const Welcome = () => {
         <div className="program-item concert">
           <span>
             <span className="program-item__main-word">
-              <span className="program-item__main-word">18:00-tól</span>
-            </span>{" "}
+              <span className="program-item__main-word">18:00</span>
+            </span>{": "}
             <a href="https://logato.hu/" target="_blank">
               Lógató
             </a>
@@ -158,7 +163,7 @@ export const Welcome = () => {
 
         <div className="program-item wedding-dress">
           <span>
-            <span className="program-item__main-word">0:00</span> Menyecsketánc
+            <span className="program-item__main-word">0:00</span>: Menyecsketánc
           </span>
           {!isMaximumLargeScreen && (
             <div className="arrow-container">
@@ -182,10 +187,10 @@ export const Welcome = () => {
   const welcomeContent = () => (
     <div>
       <p>
-        Sziasztok, úgy tűnik megkaptátok a meghívót. Ez az oldalt, azert
-        csináltuk, hogy minden egy helyen meglegyen weboldal formájában.
-        Természetesen, ha valaki nem követi ezt az oldalt, nem fog lemaradni
-        semmiről :)
+        Köszöntünk Titeket az oldalon! Reméljük velünk fogtok ünnepelni ezen a
+        szép napon. Az oldalon megtaláltok egy-két plusz információt a Nagy
+        Nappal kapcsolatban. Természetesen, ha valaki nem követi ezt az oldalt,
+        nem fog lemaradni semmiről :)
         <br />
       </p>
       <div className="quote-container">
@@ -201,9 +206,9 @@ export const Welcome = () => {
 
   const busContent = () => (
     <p>
-      Sziasztok, a könnyebb hazajutás érdekében buszjáratokat indítunk a
-      környező településekre, hogy mindenki tudjunk tisztességesen inni. Pontos
-      időpontok később
+      A könnyebb hazajutás érdekében buszjáratokat indítunk a környező
+      településekre, hogy mindenki tudjon tisztességesen inni. Pontos
+      időpontokat és a helyszíneket később feltöltjük.
     </p>
   );
   return (
