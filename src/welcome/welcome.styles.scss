@@ -1,13 +1,23 @@
+@import "../variables.styles.scss";
+$arrow-first-breakpoint: 1200px;
+$arrow-second-breakpoint: 1350px;
+$arrow-third-breakpoint: 1400px;
+
 .welcome-header {
   background-image: url("~/assets/images/wedding.jpg");
   background-attachment: fixed;
   background-position-x: center;
   background-position-y: center;
   height: 400px;
+  display: flex;
+  align-items: center;
   h1 {
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
+  }
+  @media (max-width: $breakpoint-small) {
+    height: 300px;
   }
 }
 .bus-arrivals {
@@ -20,6 +30,7 @@
   &__img-container {
     flex: 1;
   }
+
   &__img {
     max-width: 100%;
     max-height: 100%;
@@ -67,5 +78,38 @@
 .section-container {
   &--programs {
     background-color: rgb(241, 241, 241);
+  }
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  flex: 3;
+  .arrow {
+    margin-right: 60px;
+
+    @media (max-width: $breakpoint-large) {
+      margin-right: 20px;
+    }
+    @media (min-width: $breakpoint-large) and (max-width: $breakpoint-extra-large) {
+      margin-right: 40px;
+    }
+    @media (max-width: $arrow-first-breakpoint) {
+      margin-right: 0px;
+    }
+    @media (min-width: $arrow-first-breakpoint) and (max-width: $arrow-second-breakpoint) {
+      margin-right: 20px;
+    }
+    @media (min-width: $arrow-second-breakpoint) and (max-width: $arrow-third-breakpoint) {
+      margin-right: 30px;
+    }
+  }
+}
+.section.program {
+  @media (min-width: $breakpoint-extra-large) {
+    padding-left: 160px;
+    padding-right: 160px;
+    margin: auto;
+    max-width: 1200px;
   }
 }

@@ -5,5 +5,21 @@ $breakpoint-extra-extra-large: 2200px;
 $breakpoint-small: 576px;
 
 $church-color: rgb(193, 0, 231);
+
+$wedding-dress-color: rgb(255, 238, 0);
+$ring-color: rgb(253, 34, 100);
+$concert-color: rgb(48, 168, 48);
 $purple: rgb(193, 0, 231);
 $grey: rgb(177, 177, 177);
+
+:export {
+    churchColor: $church-color;
+    weddingDressColor: $wedding-dress-color;
+    ringColor: $ring-color;
+    concertColor: $concert-color;
+    breakpointTablet: $breakpoint-tablet;
+    breakpointSmall: $breakpoint-small;
+    breakpointLarge: $breakpoint-large;
+    breakpointExtraLarge: $breakpoint-extra-large;
+    breakpointExtraExtraLarge: $breakpoint-extra-extra-large;
+}

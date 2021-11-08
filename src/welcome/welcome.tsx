@@ -3,13 +3,32 @@ import { Section } from "../shared/section/section";
 import AndiTamasImg from "../../assets/images/andi_tamas.jpg";
 import bus from "../../assets/images/bus.jpg";
 import "./welcome.styles.scss";
+import cssVariables from "../variables.styles.scss";
 
 import Church from "../../assets/icons/blue-domed-church.svg";
 import Rings from "../../assets/icons/wedding-rings.svg";
 import Concert from "../../assets/icons/concert.svg";
 import WeddingDress from "../../assets/icons/wedding-dress.svg";
 import { Portal } from "../shared/portal/portal";
+import { Arrow } from "../shared/arrow/arrow";
+import { useMediaQuery } from "react-responsive";
 export const Welcome = () => {
+  const isMaximumSmallScreen = useMediaQuery({
+    query: `(max-width: ${cssVariables.breakpointSmall})`,
+  });
+  const isMaximumTabletScreen = useMediaQuery({
+    query: `(max-width: ${cssVariables.breakpointTablet})`,
+  });
+  const isMaximumLargeScreen = useMediaQuery({
+    query: `(max-width: ${cssVariables.breakpointLarge})`,
+  });
+  const isMaximumExtraLargeScreen = useMediaQuery({
+    query: `(max-width: ${cssVariables.breakpointExtraLarge})`,
+  });
+  const isMaximum1350 = useMediaQuery({ query: `(max-width: 1350px)` });
+  const isMaximum1200 = useMediaQuery({ query: `(max-width: 1200px)` });
+
+  const arrowWidth = isMaximum1200 ? "30px" : isMaximum1350 ? "70px" : "150px";
   const programContent = () => {
     const [showModal, setShowModal] = React.useState("");
     return (
@@ -49,8 +68,18 @@ export const Welcome = () => {
               </div>
             </Portal>
           )}
+          {!isMaximumLargeScreen && (
+            <div className="arrow-container">
+              <Arrow
+                className="arrow-church"
+                numberOfItems={4}
+                width={arrowWidth}
+                color={cssVariables.churchColor}
+                fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 650 }}
+              />
+            </div>
+          )}
 
-          {/* <span className="horizontal-line-dot" /> */}
           <div className="program-item-box church">
             <Church width="80px" />
           </div>
@@ -63,7 +92,17 @@ export const Welcome = () => {
               Lógató, Esztergom Külterület 0566/15 hrsz
             </u>
           </span>
-          {/* <span className="horizontal-line-dot" /> */}
+          {!isMaximumLargeScreen && (
+            <div className="arrow-container">
+              <Arrow
+                className="arrow-rings"
+                color={cssVariables.ringColor}
+                width={arrowWidth}
+                numberOfItems={4}
+                fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 700 }}
+              />
+            </div>
+          )}
           <div className="program-item-box rings">
             <Rings width="80px" />
           </div>
@@ -101,7 +140,17 @@ export const Welcome = () => {
             </a>
             , Lakodalom, lehetőleg hajnalig :D
           </span>
-          {/* <span className="horizontal-line-dot" /> */}
+          {!isMaximumLargeScreen && (
+            <div className="arrow-container">
+              <Arrow
+                numberOfItems={4}
+                color={cssVariables.concertColor}
+                className="arrow-concert"
+                width={arrowWidth}
+                fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 750 }}
+              />
+            </div>
+          )}
           <div className="program-item-box concert">
             <Concert width="80px" />
           </div>
@@ -111,7 +160,17 @@ export const Welcome = () => {
           <span>
             <span className="program-item__main-word">0:00</span> Menyecsketánc
           </span>
-          {/* <span className="horizontal-line-dot" /> */}
+          {!isMaximumLargeScreen && (
+            <div className="arrow-container">
+              <Arrow
+                className="arrow-wedding-dress"
+                color={cssVariables.weddingDressColor}
+                numberOfItems={4}
+                width={arrowWidth}
+                fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 800 }}
+              />
+            </div>
+          )}
           <div className="program-item-box wedding-dress">
             <WeddingDress width="50px" />
           </div>
