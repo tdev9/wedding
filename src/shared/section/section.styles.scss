@@ -11,6 +11,10 @@
     padding-left: 40px;
     padding-right: 40px;
   }
+  @media (max-width: $breakpoint-very-small) {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
   @media (min-width: 3000px) {
   }
   .section-text {

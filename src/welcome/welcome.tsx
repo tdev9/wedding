@@ -139,7 +139,8 @@ export const Welcome = () => {
           <span>
             <span className="program-item__main-word">
               <span className="program-item__main-word">18:00</span>
-            </span>{": "}
+            </span>
+            {": "}
             <a href="https://logato.hu/" target="_blank">
               Lógató
             </a>
