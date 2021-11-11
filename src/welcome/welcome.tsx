@@ -12,7 +12,7 @@ import WeddingDress from "../../assets/icons/wedding-dress.svg";
 import { Portal } from "../shared/portal/portal";
 import { Arrow } from "../shared/arrow/arrow";
 import { useMediaQuery } from "react-responsive";
-export const Welcome = () => {
+export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
   const isMaximumSmallScreen = useMediaQuery({
     query: `(max-width: ${cssVariables.breakpointSmall})`,
   });
@@ -213,17 +213,9 @@ export const Welcome = () => {
     </p>
   );
   return (
-    <div className="welcome-page">
-      <div className="welcome-header">
-        <div className="section-container">
-          <h1 className="text-center">
-            Andi & Tamás <br /> 2022. Április 23. Esztergom, 15:00
-            <br />
-          </h1>
-          <p></p>
-        </div>
-      </div>
-      <div className="section-container">
+    <div className="welcome-page" ref={ref}>
+      
+      <div id="intro" className="section-container">
         <Section
           title="Sziasztok!"
           contentComponent={welcomeContent}
@@ -231,16 +223,16 @@ export const Welcome = () => {
         />
       </div>
 
-      <div className="programs__img ">Program</div>
+      <div id="programs" className="programs__img ">Program</div>
       <div className="section-container section-container--program">
         <Section className="program" contentComponent={programContent} />
       </div>
 
-      <div className="bus-arrivals__img">Busz indulások</div>
+      <div id="bus" className="bus-arrivals__img">Busz indulások</div>
 
       <div className="section-container bus-arrivals">
         <Section contentComponent={busContent} />
       </div>
     </div>
   );
-};
+});
