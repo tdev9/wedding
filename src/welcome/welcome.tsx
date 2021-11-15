@@ -214,21 +214,22 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
   );
   return (
     <div className="welcome-page" ref={ref}>
-      
-      <div id="intro" className="section-container">
+      <a className="welcome-page-anchor" id="intro" />
+      <div className="section-container">
         <Section
           title="Sziasztok!"
           contentComponent={welcomeContent}
           imgSrc={AndiTamasImg}
         />
       </div>
-
-      <div id="programs" className="programs__img ">Program</div>
+      <a className="welcome-page-anchor" id="programs" />
+      <div className="programs__img ">Program</div>
       <div className="section-container section-container--program">
         <Section className="program" contentComponent={programContent} />
       </div>
 
-      <div id="bus" className="bus-arrivals__img">Busz indulások</div>
+      <a className="welcome-page-anchor" id="bus" />
+      <div className="bus-arrivals__img">Busz indulások</div>
 
       <div className="section-container bus-arrivals">
         <Section contentComponent={busContent} />

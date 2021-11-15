@@ -45,6 +45,7 @@ module.exports = {
   },
   devServer: {
     static: "./dist",
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
