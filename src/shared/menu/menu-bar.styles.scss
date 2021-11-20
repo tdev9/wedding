@@ -1,6 +1,82 @@
+@import "../../variables.styles.scss";
 .nav-menu {
   z-index: 2;
-  &.sticky-nav {
+  &.opened-hamburger {
+    .menu-items {
+      @media (max-width: $breakpoint-small) {
+        display: block;
+      }
+    }
+  }
+  &.hamburger {
+    top: 60px;
+    position: fixed;
+    height: revert;
+    border-bottom-right-radius: 20px;
+    width: 70%;
+    &.opened-hamburger {
+      background-color: rgba($color: #8c00ff, $alpha: 0.8);
+      .hamburger-icon {
+        span:first-child {
+          position: relative;
+          top: 12px;
+          transform: rotate(135deg);
+        }
+        span:nth-child(2) {
+          display: none;
+        }
+        span:last-child {
+          transform: rotate(-135deg);
+          position: relative;
+          top: 1px;
+        }
+      }
+    }
+
+    .menu-items {
+      top: 0;
+      z-index: 0;
+      left: 0;
+      padding-left: 10px;
+      a {
+        user-select: none;
+        padding: 10px;
+      }
+    }
+  }
+  .menu-items {
+    @media (max-width: $breakpoint-small) {
+      display: none;
+    }
+  }
+  .hamburger-icon {
+    height: 50px;
+    width: 57px;
+    background-color: #c100e7;
+    @media (min-width: $breakpoint-small) {
+      display: none;
+    }
+    span {
+      &:first-child {
+        margin-top: 10px;
+      }
+      margin: auto;
+      transition: transform 0.2s ease-in-out;
+      border-radius: 3px;
+      display: block;
+      background-color: white;
+      width: 30px;
+      height: 6px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .dot-container {
+    @media (max-width: $breakpoint-small) {
+      display: none;
+    }
+  }
+  &.sticky-nav:not(.hamburger) {
     position: fixed;
     top: 0;
     margin-top: revert !important;
@@ -14,7 +90,7 @@
     .dot {
       transform: translateX(-290px);
     }
-    a {
+    span a {
       &:nth-child(1):hover ~ div.dot-container .dot {
         transform: translateX(-230px);
       }
