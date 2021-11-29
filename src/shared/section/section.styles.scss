@@ -15,7 +15,9 @@
     padding-left: 35px;
     padding-right: 35px;
   }
-  @media (min-width: 3000px) {
+  @media (max-width: $breakpoint-large) {
+    padding-left: 60px;
+    padding-right: 60px;
   }
   .section-text {
     display: inline-block;

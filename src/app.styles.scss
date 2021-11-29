@@ -210,7 +210,6 @@ p {
 }
 
 .container {
-  min-width: 100%;
   padding-left: 15px;
   padding-right: 15px;
   margin-right: auto;
@@ -227,9 +226,7 @@ p {
     min-width: 960px;
   }
 
-  @media (min-width: $breakpoint-extra-large) {
-    min-width: 1200px;
-  }
+
 }
 .row {
   margin-left: -15px;
@@ -299,6 +296,10 @@ cite {
   padding: 15px 20px;
   max-height: 400px;
   max-width: 400px;
+  @media (min-width: $breakpoint-large) {
+    max-width: 700px;
+    max-height: 700px;
+  }
   position: fixed;
   border-radius: 1rem;
   margin: auto;

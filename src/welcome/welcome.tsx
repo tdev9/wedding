@@ -29,6 +29,8 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
   const isMaximum1200 = useMediaQuery({ query: `(max-width: 1200px)` });
 
   const arrowWidth = isMaximum1200 ? "30px" : isMaximum1350 ? "70px" : "150px";
+  const mapWidth = isMaximumTabletScreen ? 300 : 500;
+  const mapHeight = isMaximumTabletScreen ? 270 : 400;
   const programContent = () => {
     const [showModal, setShowModal] = React.useState("");
     return (
@@ -66,8 +68,8 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
                 </div>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24241.039972011826!2d18.730372601540157!3d47.79855034102199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476a61ed6c70c465%3A0xefe4d3967f226329!2sEsztergomi%20Bazilika!5e0!3m2!1shu!2shu!4v1635360926214!5m2!1shu!2shu"
-                  width="300"
-                  height="270"
+                  width={mapWidth}
+                  height={mapHeight}
                   loading="lazy"
                 ></iframe>
               </div>
@@ -127,8 +129,8 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
                 </div>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57714.10518626002!2d18.753883234128754!3d47.745476325198794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476a64654e479dab%3A0x8f98526bdb345f4a!2zTMOzZ2EtdMOz!5e0!3m2!1shu!2shu!4v1635188710781!5m2!1shu!2shu"
-                  width="300"
-                  height="270"
+                  width={mapWidth}
+                  height={mapHeight}
                   loading="lazy"
                 ></iframe>
               </div>
@@ -209,7 +211,7 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
     <p>
       A könnyebb hazajutás érdekében buszjáratokat indítunk a környező
       településekre, hogy mindenki tudjon tisztességesen inni. Pontos
-      időpontokat és a helyszíneket később feltöltjük.
+      időpontokat és az uticélokat később feltöltjük.
     </p>
   );
   return (
