@@ -3,18 +3,16 @@ import * as React from "react";
 import "./section.styles.scss";
 type SectionProps = {
   title?: string;
-  contentComponent: () => any;
   imgSrc?: string;
   className?: string;
 };
-export const Section: React.FunctionComponent<SectionProps> = ({
+export const Section: React.FC<SectionProps> = ({
   title,
-  contentComponent,
   imgSrc,
   className,
+  children
 }) => {
   const sectionClassName = classNames("section", className);
-  console.log(contentComponent);
   return (
     <div className={sectionClassName}>
       <div>{title && <h1 className="text-center">{title}</h1>}</div>
@@ -24,7 +22,7 @@ export const Section: React.FunctionComponent<SectionProps> = ({
             <img src={imgSrc} />
           </div>
         )}
-        {contentComponent()}
+        {children}
       </div>
     </div>
   );

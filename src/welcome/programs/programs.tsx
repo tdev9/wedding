@@ -2,7 +2,6 @@ import * as React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Arrow } from "../../shared/arrow/arrow";
 import { Portal } from "../../shared/portal/portal";
-
 import Church from "../../../assets/icons/blue-domed-church.svg";
 import Rings from "../../../assets/icons/wedding-rings.svg";
 import Concert from "../../../assets/icons/concert.svg";
@@ -10,7 +9,7 @@ import WeddingDress from "../../../assets/icons/wedding-dress.svg";
 
 import cssVariables from "../../variables.styles.scss";
 
-export const Programs: React.FC = () => {
+const ProgramsComponent: React.FC = () => {
   const [showModal, setShowModal] = React.useState("");
 
   const isMaximum1200 = useMediaQuery({ query: `(max-width: 1200px)` });
@@ -176,3 +175,5 @@ export const Programs: React.FC = () => {
     </div>
   );
 };
+
+export const Programs = React.memo(ProgramsComponent)
