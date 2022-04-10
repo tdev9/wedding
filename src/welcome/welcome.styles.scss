@@ -53,7 +53,7 @@ $arrow-third-breakpoint: 1400px;
     }
   }
 }
-.programs__img {
+.img-cover {
   max-width: 100%;
   max-height: 100%;
   background-attachment: fixed;
@@ -61,7 +61,6 @@ $arrow-third-breakpoint: 1400px;
   background-position-y: center;
   background-size: cover;
   height: 300px;
-  background-image: url("../../assets/images/flowers.jpg");
   font-size: 52px;
   line-height: 300px;
   text-align: center;
@@ -69,10 +68,20 @@ $arrow-third-breakpoint: 1400px;
   font-weight: 1000;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+.programs__img {
+  @extend .img-cover;
+  background-image: url("../../assets/images/flowers.jpg");
+
   @media (max-width: 1100px) {
     height: 200px;
     line-height: 200px;
   }
+}
+
+.carte__img {
+  @extend .img-cover;
+  background-image: url("../../assets/images/carte.jpg");
 }
 
 .section-container {
@@ -111,5 +120,11 @@ $arrow-third-breakpoint: 1400px;
     padding-right: 160px;
     margin: auto;
     max-width: 1200px;
+  }
+}
+.carte {
+  text-align: center;
+  p {
+    text-align: center;
   }
 }

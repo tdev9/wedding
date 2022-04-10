@@ -3,7 +3,7 @@
   z-index: 2;
   &.opened-hamburger {
     .menu-items {
-      @media (max-width: $breakpoint-small) {
+      @media (max-width: $breakpoint-tablet) {
         display: block;
       }
     }
@@ -38,6 +38,7 @@
       z-index: 0;
       left: 0;
       padding-left: 10px;
+      max-width: 300px;
       a {
         user-select: none;
         padding: 10px;
@@ -45,7 +46,7 @@
     }
   }
   .menu-items {
-    @media (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-tablet) {
       display: none;
     }
   }
@@ -53,7 +54,7 @@
     height: 50px;
     width: 57px;
     background-color: #c100e7;
-    @media (min-width: $breakpoint-small) {
+    @media (min-width: $breakpoint-tablet) {
       display: none;
     }
     span {
@@ -72,7 +73,7 @@
   }
 
   .dot-container {
-    @media (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-tablet) {
       display: none;
     }
   }
@@ -90,21 +91,10 @@
     .dot {
       transform: translateX(-290px);
     }
-    span a {
-      &:nth-child(1):hover ~ div.dot-container .dot {
-        transform: translateX(-230px);
-      }
-      &:nth-child(2):hover ~ div.dot-container .dot {
-        transform: translateX(-70px);
-      }
-      &:nth-child(3):hover ~ div.dot-container .dot {
-        transform: translateX(140px);
-      }
-    }
   }
   height: 60px;
   margin-top: -60px;
-  width: 590px;
+  width: 750px;
   margin-left: auto;
   margin-right: auto;
   a {
@@ -117,7 +107,9 @@
     display: inline-block;
 
     transition: all 0.2s ease-in-out;
-    margin-right: 40px;
+    &:not(:last-of-type) {
+      margin-right: 40px;
+    }
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
     // width: 200px;
@@ -125,26 +117,25 @@
       color: #ffe366;
     }
     &:nth-child(1):hover ~ div.dot-container .dot {
-      transform: translateX(40px);
+      transform: translateX(-290px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;
     }
     &:nth-child(2):hover ~ div.dot-container .dot {
-      transform: translateX(210px);
+      transform: translateX(-136px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;
     }
     &:nth-child(3):hover ~ div.dot-container .dot {
-      transform: translateX(400px);
+      transform: translateX(40px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;
     }
     &:nth-child(4):hover ~ div.dot-container .dot {
-      -webkit-transform: translateX(285px);
-      transform: translateX(285px);
+      transform: translateX(240px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;

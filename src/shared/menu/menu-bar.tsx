@@ -7,7 +7,7 @@ import "./menu-bar.styles.scss";
 import cssVariables from "../../variables.styles.scss";
 
 export type MenuBarProps = {
-  onClickMenuItem: (menuItem: "intro" | "programs" | "bus") => void;
+  onClickMenuItem: (menuItem: "intro" | "programs" | "bus" | "menu") => void;
 };
 export const Menubar: React.FC<MenuBarProps> = ({ onClickMenuItem }) => {
   const [isSticky, setSticky] = React.useState(false);
@@ -25,8 +25,9 @@ export const Menubar: React.FC<MenuBarProps> = ({ onClickMenuItem }) => {
   }, []);
 
   const isMobile = useMediaQuery({
-    query: `(max-width: ${cssVariables.breakpointSmall})`,
+    query: `(max-width: ${cssVariables.breakpointTablet})`,
   });
+
   const clickHamburger = React.useCallback(() => {
     setOpenHamburger(!openedHamburger);
   }, [openedHamburger]);
@@ -54,6 +55,14 @@ export const Menubar: React.FC<MenuBarProps> = ({ onClickMenuItem }) => {
         </a>
         <a
           onClick={() => {
+            navigate("/#menu");
+            onClickMenuItem("menu");
+          }}
+        >
+          Étel/Ital
+        </a>
+        <a
+          onClick={() => {
             navigate("/#programs");
             onClickMenuItem("programs");
           }}
@@ -69,12 +78,12 @@ export const Menubar: React.FC<MenuBarProps> = ({ onClickMenuItem }) => {
           Busz indulások
         </a>
         <div className="dot-container">
-        <div className="dot"></div>
-        <div className="dot"></div>
-        <div className="dot"></div>
-      </div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </div>
       </span>
-
     </nav>
   );
 };

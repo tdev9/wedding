@@ -30,21 +30,21 @@
   }
   img {
     width: auto;
-    width: 300px;
-    height: 300px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    @media (max-width: 720px) {
-      width: 200px;
-      height: 200px;
-    }
-    @media (max-width: 450px) {
+    @media only screen and (min-width: 430px) {
       width: 150px;
       height: 150px;
     }
-    @media (max-width: 350px) {
-      width: 100px;
-      height: 100px;
+    @media only screen and (min-width: 720px) {
+      width: 300px;
+      height: 300px;
+    }
+    @media only screen and (min-width: 480px) {
+      width: 200px;
+      height: 200px;
     }
   }
   h1 {

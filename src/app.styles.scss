@@ -59,10 +59,8 @@ p {
 .program-item {
   font-size: 18px;
   display: flex;
-  justify-content: center;
-  @media (max-width: $breakpoint-tablet) {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
+
   align-items: center;
   & > span {
     @media (max-width: $breakpoint-tablet) {
@@ -86,6 +84,9 @@ p {
   flex: 2;
   max-width: 200px;
   position: relative;
+  @media (min-width: $breakpoint-very-small) {
+    height: 118px;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -225,8 +226,6 @@ p {
   @media (min-width: $breakpoint-large) {
     min-width: 960px;
   }
-
-
 }
 .row {
   margin-left: -15px;
