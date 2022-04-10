@@ -55,9 +55,9 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
               lehetőség a templomi és a polgári szertartás között is.
             </p>
             <p>
-              A <b>koszorúslányok</b> a templomnál keressék a
-              ceremóniamestert(angolosan: sensei-t), Fricit, aki minden infót
-              elmond majd Nektek. &#9786;
+              A <b>koszorúslányok</b> a templomnál keressék a ceremóniamestert
+              (angolosan: sensei-t), Fricit, aki minden infót elmond majd
+              Nektek. &#9786;
             </p>
             <h2></h2>
             <p></p>
