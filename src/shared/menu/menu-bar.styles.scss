@@ -1,7 +1,13 @@
 @import "../../variables.styles.scss";
 $menu-yellow: #ffe366;
 .nav-menu {
+  width: 100%;
+  text-align: center;
   z-index: 2;
+  height: 60px;
+  margin-top: -60px;
+  margin-left: auto;
+  margin-right: auto;
   &.opened-hamburger {
     .menu-items {
       @media (max-width: $breakpoint-tablet) {
@@ -93,11 +99,7 @@ $menu-yellow: #ffe366;
       transform: translateX(-290px);
     }
   }
-  height: 60px;
-  margin-top: -60px;
-  width: 750px;
-  margin-left: auto;
-  margin-right: auto;
+
   a {
     cursor: pointer;
     color: white;
@@ -113,30 +115,29 @@ $menu-yellow: #ffe366;
     }
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
-    // width: 200px;
     &:hover {
       color: $menu-yellow;
     }
     &:nth-child(1):hover ~ div.dot-container .dot {
-      transform: translateX(23px);
+      transform: translateX(-290px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;
     }
     &:nth-child(2):hover ~ div.dot-container .dot {
-      transform: translateX(175px);
+      transform: translateX(-136px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;
     }
     &:nth-child(3):hover ~ div.dot-container .dot {
-      transform: translateX(350px);
+      transform: translateX(40px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;
     }
     &:nth-child(4):hover ~ div.dot-container .dot {
-      transform: translateX(560px);
+      transform: translateX(240px);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       opacity: 1;
