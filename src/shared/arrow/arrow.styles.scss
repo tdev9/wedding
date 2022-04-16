@@ -1,16 +1,16 @@
-@import '../../variables.styles.scss';
+@import "../../variables.styles.scss";
 
-.arrow  {
-    display: flex;
-    justify-content: right;
-    width: 100%;
-    position: relative;
-    svg {
-        transform: rotate(180deg);
-        width: 5px;
-        height: 20px;
-        opacity: 0;
-        transition:width 2s ease;
-        overflow: visible;
-    }
+.arrow {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  position: relative;
+  svg {
+    transform: rotate(180deg);
+    width: 5px;
+    height: 20px;
+    opacity: 0;
+    transition: width 2s ease;
+    overflow: visible;
+  }
 }

@@ -10,7 +10,7 @@ export const Section: React.FC<SectionProps> = ({
   title,
   imgSrc,
   className,
-  children
+  children,
 }) => {
   const sectionClassName = classNames("section", className);
   return (

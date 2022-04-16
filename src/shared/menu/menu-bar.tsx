@@ -5,13 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 import "./menu-bar.styles.scss";
 import cssVariables from "../../variables.styles.scss";
-
+type MenuItemIdentifier = "intro" | "programs" | "bus" | "menu";
 export type MenuBarProps = {
-  onClickMenuItem: (menuItem: "intro" | "programs" | "bus" | "menu") => void;
+  onClickMenuItem: (menuItem: MenuItemIdentifier) => void;
 };
 export const Menubar: React.FC<MenuBarProps> = ({ onClickMenuItem }) => {
   const [isSticky, setSticky] = React.useState(false);
-  const [active, setActive] = React.useState<string>();
   const [openedHamburger, setOpenHamburger] = React.useState(false);
   const navigate = useNavigate();
   React.useEffect(() => {
@@ -28,9 +27,17 @@ export const Menubar: React.FC<MenuBarProps> = ({ onClickMenuItem }) => {
     query: `(max-width: ${cssVariables.breakpointTablet})`,
   });
 
-  const clickHamburger = React.useCallback(() => {
+  const onMenuItemClickWithNavigate = (
+    itemIdentifier: MenuItemIdentifier
+  ): void => {
+    navigate(`/#${itemIdentifier}`);
+    onClickMenuItem(itemIdentifier);
+  };
+
+  const clickHamburger = () => {
     setOpenHamburger(!openedHamburger);
-  }, [openedHamburger]);
+  };
+
   const navClass = classNames("nav-menu", {
     "sticky-nav": isSticky,
     "opened-hamburger": openedHamburger,
@@ -47,32 +54,28 @@ export const Menubar: React.FC<MenuBarProps> = ({ onClickMenuItem }) => {
       <span className="menu-items">
         <a
           onClick={() => {
-            navigate("/#intro");
-            onClickMenuItem("intro");
+            onMenuItemClickWithNavigate("intro");
           }}
         >
           Bevezető
         </a>
         <a
           onClick={() => {
-            navigate("/#menu");
-            onClickMenuItem("menu");
+            onMenuItemClickWithNavigate("menu");
           }}
         >
           Étel/Ital
         </a>
         <a
           onClick={() => {
-            navigate("/#programs");
-            onClickMenuItem("programs");
+            onMenuItemClickWithNavigate("programs");
           }}
         >
           Programok
         </a>
         <a
           onClick={() => {
-            navigate("/#bus");
-            onClickMenuItem("bus");
+            onMenuItemClickWithNavigate("bus");
           }}
         >
           Busz indulások

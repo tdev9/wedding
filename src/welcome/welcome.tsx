@@ -59,7 +59,6 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
               (angolosan: sensei-t), Fricit, aki minden infót elmond majd
               Nektek. &#9786;
             </p>
-            <h2></h2>
             <p></p>
           </div>
         </Section>
