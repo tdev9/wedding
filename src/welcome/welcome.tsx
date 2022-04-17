@@ -2,32 +2,9 @@ import * as React from "react";
 import { Section } from "../shared/section/section";
 import AndiTamasImg from "../../assets/images/andi_tamas.jpg";
 import "./welcome.styles.scss";
-import cssVariables from "../variables.styles.scss";
-import { useMediaQuery } from "react-responsive";
 import { Programs } from "./programs/programs";
 
-export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
-  const isMaximumSmallScreen = useMediaQuery({
-    query: `(max-width: ${cssVariables.breakpointSmall})`,
-  });
-
-  const isMaximumTabletScreen = useMediaQuery({
-    query: `(max-width: ${cssVariables.breakpointTablet})`,
-  });
-
-  const isMaximumLargeScreen = useMediaQuery({
-    query: `(max-width: ${cssVariables.breakpointLarge})`,
-  });
-
-  const isMaximumExtraLargeScreen = useMediaQuery({
-    query: `(max-width: ${cssVariables.breakpointExtraLarge})`,
-  });
-
-  const isMaximum1350 = useMediaQuery({ query: `(max-width: 1350px)` });
-
-  const mapWidth = isMaximumTabletScreen ? 300 : 500;
-  const mapHeight = isMaximumTabletScreen ? 270 : 400;
-
+export const Welcome = React.forwardRef<HTMLDivElement>((extraParams, ref) => {
   return (
     <div className="welcome-page" ref={ref}>
       <a className="welcome-page-anchor" id="intro" />

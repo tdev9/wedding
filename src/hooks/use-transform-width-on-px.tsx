@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 export const useTransformWidthOnPx = (
   elementSelector: string,
   scrollPx: number,
@@ -9,13 +9,13 @@ export const useTransformWidthOnPx = (
 ) => {
   useEffect(() => {
     if (isTransformStartable) {
-      const element = document.querySelector(elementSelector)!;
+      const element = document.querySelector<HTMLElement>(elementSelector);
       let faded = false;
 
-      const onScroll = function () {
-        const body = document.querySelector("html")!;
-        const y = body.scrollTop;
-        if (!faded && y > scrollPx) {
+      const onScroll = () => {
+        const body = document.querySelector("html");
+        const y = body?.scrollTop;
+        if (y && element && !faded && y > scrollPx) {
           transformWidth(element, fadeTime, delay, maxWidth);
           faded = true;
         }
@@ -26,16 +26,16 @@ export const useTransformWidthOnPx = (
 };
 
 function transformWidth(
-  el: any,
+  el: HTMLElement,
   time: number,
   delay: number,
   maxWidth: string
 ) {
-  el.style.opacity = 0;
+  el.style.opacity = "0";
 
-  var last = +new Date();
-  var tick = function () {
-    el.style.opacity = +el.style.opacity + (+new Date() - last) / time;
+  let last = +new Date();
+  const tick = () => {
+    el.style.opacity = `${+el.style.opacity + (+new Date() - last) / time}`;
 
     last = +new Date();
     el.style.width = maxWidth;
