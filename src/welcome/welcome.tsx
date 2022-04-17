@@ -139,6 +139,9 @@ export const Welcome = React.forwardRef<HTMLDivElement>(({}, ref) => {
               <li>
                 Peti taxi: <a href="tel:+36303090105">+36 30 309 0105</a>
               </li>
+              <li>
+                Dudás Bence taxi: <a href="tel:+36703214055">+36 70 321 4055</a>
+              </li>
             </ul>
           </p>
         </Section>
