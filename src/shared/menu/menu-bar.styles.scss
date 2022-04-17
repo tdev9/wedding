@@ -18,10 +18,11 @@ $menu-yellow: #ffe366;
   &.hamburger {
     top: 60px;
     position: fixed;
-    height: revert;
+    height: auto;
+    width: auto;
     border-bottom-right-radius: 20px;
-    width: 70%;
     &.opened-hamburger {
+      text-align: left;
       background-color: rgba($color: #8c00ff, $alpha: 0.8);
       .hamburger-icon {
         span:first-child {
@@ -37,6 +38,9 @@ $menu-yellow: #ffe366;
           position: relative;
           top: 1px;
         }
+      }
+      .menu-items {
+        text-align: center;
       }
     }
 

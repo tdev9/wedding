@@ -4,22 +4,25 @@ export const useTransformWidthOnPx = (
   scrollPx: number,
   fadeTime: number,
   delay: number,
-  maxWidth: string
+  maxWidth: string,
+  isTransformStartable: boolean
 ) => {
   useEffect(() => {
-    const element = document.querySelector(elementSelector)!;
-    let faded = false;
+    if (isTransformStartable) {
+      const element = document.querySelector(elementSelector)!;
+      let faded = false;
 
-    const onScroll = function () {
-      const body = document.querySelector("html")!;
-      const y = body.scrollTop;
-      if (!faded && y > scrollPx) {
-        transformWidth(element, fadeTime, delay, maxWidth);
-        faded = true;
-      }
-    };
-    document.addEventListener("scroll", onScroll);
-  }, []);
+      const onScroll = function () {
+        const body = document.querySelector("html")!;
+        const y = body.scrollTop;
+        if (!faded && y > scrollPx) {
+          transformWidth(element, fadeTime, delay, maxWidth);
+          faded = true;
+        }
+      };
+      document.addEventListener("scroll", onScroll);
+    }
+  }, [isTransformStartable]);
 };
 
 function transformWidth(

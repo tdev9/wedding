@@ -8,9 +8,22 @@ import Concert from "../../../assets/icons/concert.svg";
 import WeddingDress from "../../../assets/icons/wedding-dress.svg";
 
 import cssVariables from "../../variables.styles.scss";
-
+const BASE_FADE_CONFIG = { delay: 400, fadeTime: 2500 };
+const OFFSET_PX = 150;
+type ArrowContainersTopConfig = {
+  church?: number;
+  concert?: number;
+  ring?: number;
+  weddingDress?: number;
+};
 const ProgramsComponent: React.FC = () => {
   const [showModal, setShowModal] = React.useState("");
+  const [arrowContainersTop, setArrowContainersTop] =
+    React.useState<ArrowContainersTopConfig>({});
+  const concertRef = React.createRef<HTMLDivElement>();
+  const churchRef = React.createRef<HTMLDivElement>();
+  const ringRef = React.createRef<HTMLDivElement>();
+  const weddingDressRef = React.createRef<HTMLDivElement>();
 
   const isMaximum1200 = useMediaQuery({ query: `(max-width: 1200px)` });
   const isMaximum1350 = useMediaQuery({ query: `(max-width: 1350px)` });
@@ -20,10 +33,55 @@ const ProgramsComponent: React.FC = () => {
   const isMaximumLargeScreen = useMediaQuery({
     query: `(max-width: ${cssVariables.breakpointLarge})`,
   });
-  
+
   const mapWidth = isMaximumTabletScreen ? 300 : 500;
   const mapHeight = isMaximumTabletScreen ? 270 : 400;
   const arrowWidth = isMaximum1200 ? "30px" : isMaximum1350 ? "70px" : "150px";
+
+  React.useEffect(() => {
+    setArrowContainersTop({
+      concert: concertRef.current?.offsetTop,
+      church: churchRef.current?.offsetTop,
+      weddingDress: weddingDressRef.current?.offsetTop,
+      ring: ringRef.current?.offsetTop,
+    });
+  }, []);
+
+  const churchFadeConfig = React.useMemo(() => {
+    const top = arrowContainersTop.church;
+    const scrollPx = top ? top - OFFSET_PX : 0;
+    return {
+      ...BASE_FADE_CONFIG,
+      scrollPx: Math.max(scrollPx, 0),
+    };
+  }, [arrowContainersTop.church]);
+
+  const ringFadeConfig = React.useMemo(() => {
+    const top = arrowContainersTop.ring;
+    const scrollPx = top ? top - OFFSET_PX : 0;
+    return {
+      ...BASE_FADE_CONFIG,
+      scrollPx: Math.max(scrollPx, 0),
+    };
+  }, [arrowContainersTop.ring]);
+
+  const weddingDressFadeConfig = React.useMemo(() => {
+    const top = arrowContainersTop.weddingDress;
+    const scrollPx = top ? top - OFFSET_PX : 0;
+    return {
+      ...BASE_FADE_CONFIG,
+      scrollPx: Math.max(scrollPx, 0),
+    };
+  }, [arrowContainersTop.weddingDress]);
+
+  const concertFadeConfig = React.useMemo(() => {
+    const top = arrowContainersTop.concert;
+    const scrollPx = top ? top - OFFSET_PX : 0;
+    return {
+      ...BASE_FADE_CONFIG,
+      scrollPx: Math.max(scrollPx, 0),
+    };
+  }, [arrowContainersTop.concert]);
 
   return (
     <div className="pad-top-3r">
@@ -65,13 +123,13 @@ const ProgramsComponent: React.FC = () => {
           </Portal>
         )}
         {!isMaximumLargeScreen && (
-          <div className="arrow-container">
+          <div className="arrow-container" ref={churchRef}>
             <Arrow
               className="arrow-church"
-              numberOfItems={4}
               width={arrowWidth}
               color={cssVariables.churchColor}
-              fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 650 }}
+              fadeConfig={churchFadeConfig}
+              isTransformStartable={!!arrowContainersTop.church}
             />
           </div>
         )}
@@ -89,13 +147,13 @@ const ProgramsComponent: React.FC = () => {
           </u>
         </span>
         {!isMaximumLargeScreen && (
-          <div className="arrow-container">
+          <div className="arrow-container" ref={ringRef}>
             <Arrow
               className="arrow-rings"
               color={cssVariables.ringColor}
               width={arrowWidth}
-              numberOfItems={4}
-              fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 700 }}
+              fadeConfig={ringFadeConfig}
+              isTransformStartable={!!arrowContainersTop.ring}
             />
           </div>
         )}
@@ -138,13 +196,13 @@ const ProgramsComponent: React.FC = () => {
           , Lakodalom, lehetőleg hajnalig :D
         </span>
         {!isMaximumLargeScreen && (
-          <div className="arrow-container">
+          <div className="arrow-container" ref={concertRef}>
             <Arrow
-              numberOfItems={4}
               color={cssVariables.concertColor}
               className="arrow-concert"
               width={arrowWidth}
-              fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 750 }}
+              fadeConfig={concertFadeConfig}
+              isTransformStartable={!!arrowContainersTop.concert}
             />
           </div>
         )}
@@ -158,13 +216,13 @@ const ProgramsComponent: React.FC = () => {
           <span className="program-item__main-word">0:00</span>: Menyecsketánc
         </span>
         {!isMaximumLargeScreen && (
-          <div className="arrow-container">
+          <div className="arrow-container" ref={weddingDressRef}>
             <Arrow
               className="arrow-wedding-dress"
               color={cssVariables.weddingDressColor}
-              numberOfItems={4}
               width={arrowWidth}
-              fadeConfig={{ delay: 400, fadeTime: 2500, scrollPx: 800 }}
+              fadeConfig={weddingDressFadeConfig}
+              isTransformStartable={!!arrowContainersTop.weddingDress}
             />
           </div>
         )}
@@ -176,4 +234,4 @@ const ProgramsComponent: React.FC = () => {
   );
 };
 
-export const Programs = React.memo(ProgramsComponent)
+export const Programs = React.memo(ProgramsComponent);

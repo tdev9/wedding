@@ -6,17 +6,17 @@ import { v4 as uuidv4 } from "uuid";
 import "./arrow.styles.scss";
 type ArrowProps = {
   width: string;
-  numberOfItems?: number;
   className?: string;
   color?: string;
+  isTransformStartable?: boolean;
   fadeConfig: { scrollPx: number; fadeTime: number; delay: number };
 };
-export const Arrow: React.FC<ArrowProps> = ({
-  numberOfItems = 4,
+const Arrow: React.FC<ArrowProps> = ({
   className,
   fadeConfig,
   width,
   color = "black",
+  isTransformStartable = true,
 }) => {
   const svgId = uuidv4();
 
@@ -25,7 +25,8 @@ export const Arrow: React.FC<ArrowProps> = ({
     fadeConfig.scrollPx,
     fadeConfig.fadeTime,
     fadeConfig.delay,
-    width
+    width,
+    isTransformStartable
   );
   const arrowClass = classNames("arrow", className);
 
@@ -50,11 +51,13 @@ export const Arrow: React.FC<ArrowProps> = ({
           y1="50%"
           x2="100%"
           y2="50%"
-          stroke-width="3"
-          marker-end={`url(#${markerId})`}
+          strokeWidth="3"
+          markerEnd={`url(#${markerId})`}
           stroke={color}
         />
       </svg>
     </span>
   );
 };
+const memoizedArrow = React.memo(Arrow);
+export { memoizedArrow as Arrow };
